@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singapore Education Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #e23636;
+            --secondary-color: #333;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f8f8f8;
+        }
+
+        .search-container {
+            background-color: #f8f8f8;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-top: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/400');
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">SG Education</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="gpa-calculator.html">GPA Calculator</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <input type="text" placeholder="Search for courses, resources, and more...">
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Singapore Education Portal</h1>
+            <p>Your one-stop platform for educational resources and tools</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>What We Offer</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>GPA Calculator</h3>
+                <p>Calculate your Grade Point Average easily with our intuitive calculator tool.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Educational Resources</h3>
+                <p>Access quality educational materials and resources for various subjects.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Academic Support</h3>
+                <p>Get guidance and support for your academic journey in Singapore.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
