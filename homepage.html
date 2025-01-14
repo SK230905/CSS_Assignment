@@ -5,11 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singapore Education Portal</title>
     <style>
+        @keyframes moveInCircle {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(100px, 0); }
+            50% { transform: translate(100px, 100px); }
+            75% { transform: translate(0, 100px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .moving-element {
+            position: absolute;
+            white-space: nowrap;
+            animation: moveInCircle 20s linear infinite;
+        }
+
+        .moving-element div {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: maroon;
+            --secondary-color: maroon;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slideshow-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slideshow-content div {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
         }
 
         :root {
@@ -129,6 +190,20 @@
             margin-top: 3rem;
         }
 
+        .scroll-container {
+            white-space: nowrap;
+            overflow-x: auto;
+            width: 100%;
+            direction: rtl; /* Right to left scrolling */
+        }
+
+        .scroll-container div {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: lightcoral;
+            margin-left: 10px; /* Adjust margin for right-to-left */
+        }
     </style>
 </head>
 <head>
@@ -176,19 +251,23 @@
                 <h3>Educational Resources</h3>
                 <p>Access quality educational materials and resources for various subjects.</p>
                 <br>
-                <p>Pre-School</p>
-                <p>Primary School</p>
-                <p>Secondary School</p>
-                <p>Junior College</p>
-                <p>Polytechnic</p>
-                <p>University</p>
             </div>
             <div class="feature-card">
                 <h3>Academic Support</h3>
                 <p>Get guidance and support for your academic journey in Singapore.</p>
             </div>
         </div>
+        <div class="moving-element">
+            <div>Pre-School</div>
+            <div>Primary School</div>
+            <div>Secondary School</div>
+            <div>Junior College</div>
+            <div>Polytechnic</div>
+            <div>University</div>
+        </div>
     </section>
+
+    
 
     <footer>
         <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>

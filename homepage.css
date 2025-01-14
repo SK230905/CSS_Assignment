@@ -51,16 +51,20 @@ nav {
 }
 
 .search-container {
-    background-color: #f8f8f8;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
     margin-top: 80px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 1rem;
+}
+
+.search-wrapper {
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    position: relative;
 }
 
 .search-container input {
@@ -73,11 +77,11 @@ nav {
 }
 
 .search-icon {
+    position: absolute;
+    right: 1rem;
     color: #666;
-    min-width: 20px;
     cursor: pointer;
     transition: color 0.3s;
-    order: -500;
 }
 
 .search-icon:hover {
