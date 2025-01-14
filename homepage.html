@@ -4,73 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singapore Education Portal</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        @keyframes moveInCircle {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(100px, 0); }
-            50% { transform: translate(100px, 100px); }
-            75% { transform: translate(0, 100px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        .moving-element {
-            position: absolute;
-            white-space: nowrap;
-            animation: moveInCircle 20s linear infinite;
-        }
-
-        .moving-element div {
-            display: inline-block;
-            margin-right: 20px;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
-        }
-
-        :root {
-            --primary-color: maroon;
-            --secondary-color: maroon;
-        }
-
-        .slideshow-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .slideshow-content {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slideshow-content div {
-            min-width: 100%;
-            box-sizing: border-box;
-            padding: 20px;
-            background-color: lightblue;
-            text-align: center;
-        }
-
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .arrow.left {
-            left: 10px;
-        }
-
-        .arrow.right {
-            right: 10px;
         }
 
         :root {
@@ -105,6 +45,7 @@
         .nav-links {
             display: flex;
             gap: 2rem;
+            position: relative;
         }
 
         .nav-links a {
@@ -118,6 +59,34 @@
             color: #f8f8f8;
         }
 
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .search-container {
             background-color: #f8f8f8;
             padding: 0.5rem 1rem;
@@ -126,6 +95,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            position: relative;
         }
 
         .search-container input {
@@ -134,6 +104,13 @@
             border: none;
             background: transparent;
             outline: none;
+        }
+
+        .search-icon {
+            position: absolute; /* Add this */
+            right: 10px; /* Adjust as needed */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Center vertically */
         }
 
         .hero {
@@ -204,26 +181,19 @@
             background-color: lightcoral;
             margin-left: 10px; /* Adjust margin for right-to-left */
         }
+
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg) translateZ(200px);
+            }
+            to {
+                transform: rotateY(360deg) translateZ(200px);
+            }
+        }
     </style>
 </head>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singapore Education Portal</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <a href="homepage.html" class="logo">SG Education</a>
-            <div class="nav-links">
-                <a href="homepage.html">Home</a>
-                <a href="gpa-calculator.html">GPA Calculator</a>
-                <a href="resources.html">Educational Resources</a>
-                <a href="contact.html">Contact Us</a>
-            </div>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <div class="search-container">
         <input type="text" placeholder="Search for courses, resources, and more...">
@@ -257,20 +227,22 @@
                 <p>Get guidance and support for your academic journey in Singapore.</p>
             </div>
         </div>
-        <div class="moving-element">
-            <div>Pre-School</div>
-            <div>Primary School</div>
-            <div>Secondary School</div>
-            <div>Junior College</div>
-            <div>Polytechnic</div>
-            <div>University</div>
-        </div>
     </section>
-
-    
 
     <footer>
         <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Dynamically load the navbar
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.body.insertAdjacentHTML('afterbegin', data);
+                })
+                .catch(error => console.error('Error loading the navbar:', error));
+        });
+    </script>
 </body>
 </html>
