@@ -13,6 +13,14 @@
             font-family: 'Arial', sans-serif;
         }
 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+            display: flex;
+            flex-direction: column; /* Ensures footer stays at the bottom */
+        }
+
         :root {
             --primary-color: maroon;
             --secondary-color: maroon;
@@ -141,13 +149,17 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        }
+
+        .feature-card img {
+        margin-bottom: 1rem; /* Adjust spacing as needed */
+        width: 100px; /* Adjust image width as needed */
+        height: auto; /* Maintain aspect ratio */
         }
 
         .feature-card h3 {
@@ -164,7 +176,7 @@
             color: white;
             padding: 2rem;
             text-align: center;
-            margin-top: 3rem;
+            margin-top: auto;
         }
 
         .scroll-container {
@@ -190,10 +202,43 @@
                 transform: rotateY(360deg) translateZ(200px);
             }
         }
+        .center-text {
+        text-align: center;
+        }
+        .photo-booth {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        overflow: hidden;
+        background-color: #f8f8f8;
+        padding: 10px 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-track {
+            display: flex;
+            animation: scroll-left 20s linear infinite; /* Repeating animation */
+        }
+
+        .photo {
+            flex-shrink: 0;
+            width: 150px;
+            margin: 0 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%); /* Start at the right */
+            }
+            100% {
+                transform: translateX(-100%); /* End at the left */
+            }
+        }
     </style>
 </head>
 <body>
-
     <nav>
     <div class="nav-content">
         <a href="homepage.html" class="logo">SG Education</a>
@@ -215,7 +260,14 @@
         </div>
     </div>
 </nav>
-
+    <div class="photo-booth">
+        <div class="photo-track">
+            <img src="Image/preschool1.jpg" alt="Photo 1" class="photo">
+            <img src="Image/PriSchool" alt="Photo 2" class="photo">
+            <img src="Image/Sec school.webp" alt="Photo 3" class="photo">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
     <div class="search-container">
         <input type="text" placeholder="Search for courses, resources, and more...">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
@@ -225,45 +277,45 @@
     </div>
 
     <section class="hero">
-        <div class="hero-content">
+        <div class="center-text">
             <h1>Welcome to Singapore Education Portal</h1>
             <p>Your one-stop platform for educational resources and tools</p>
         </div>
     </section>
 
-    <section class="features">
-        <h2>What We Offer</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>GPA Calculator</h3>
-                <p>Calculate your Grade Point Average easily with our intuitive calculator tool.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Educational Resources</h3>
-                <p>Access quality educational materials and resources for various subjects.</p>
-                <br>
-            </div>
-            <div class="feature-card">
-                <h3>Academic Support</h3>
-                <p>Get guidance and support for your academic journey in Singapore.</p>
-            </div>
+    <div class="feature-container">
+        <div class="feature-card">
+          <div class="card-body">
+            <a href="gpa-calculator.html">
+              <img src="Image/calculator.webp" class="feature-image" alt="GPA Calculator">
+              <h3>GPA Calculator</h3>
+            </a>
+            <br>
+            <p>Calculate your Grade Point Average easily with our intuitive calculator tool.</p>
+            <br>
+          </div>
         </div>
+        <div class="feature-card">
+          <a href="resources.html">
+            <img src="Image/AcademicSupport.jpg" alt="Educational Resources" class="feature-image">
+            <h3>Educational Resources</h3>
+          </a>
+          <p>Access quality educational materials and resources for various subjects.</p>
+          <br>
+        </div>
+        <div class="feature-card">
+          <a href="contact.html">
+            <img src="Image/Resources.webp" alt="Academic Support" class="feature-image">
+            <h3>Academic Support</h3>
+          </a>
+          <p>Get guidance and support for your academic journey in Singapore.</p>
+          <br>
+        </div>
+      </div>
     </section>
-
+    
     <footer>
         <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Dynamically load the navbar
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('./path-to/navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.body.insertAdjacentHTML('afterbegin', data);
-                })
-                .catch(error => console.error('Error loading the navbar:', error));
-        });
-    </script>
 </body>
 </html>
