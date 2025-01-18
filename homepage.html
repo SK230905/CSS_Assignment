@@ -16,9 +16,9 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+            min-height: 100vh; 
             display: flex;
-            flex-direction: column; /* Ensures footer stays at the bottom */
+            flex-direction: column; 
         }
 
         :root {
@@ -96,14 +96,14 @@
         }
 
         .search-container {
-            background-color: #f8f8f8;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            margin-top: 80px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
+            background-color: #fff; /* Ensures a clean background */
+            border: 2px solid #ccc; /* Adds a light border */
+            border-radius: 8px; /* Rounds the corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            padding: 1rem 10rem; /* Creates space inside the container */
+            max-width: 1000px;
+            margin: 1px auto 2rem; /* Centers it and adds spacing */
+            position: relative; /* Allows us to position the icon */
         }
 
         .search-container input {
@@ -115,10 +115,10 @@
         }
 
         .search-icon {
-            position: absolute; /* Add this */
-            left: 50 px; /* Adjust as needed */
-            top: 50%; /* Center vertically */
-            transform: translateY(-50%); /* Center vertically */
+            position: absolute;
+            right: 10px; 
+            top: 50%; 
+            transform: translateY(-50%); 
         }
 
         .hero {
@@ -157,9 +157,9 @@
         }
 
         .feature-card img {
-        margin-bottom: 1rem; /* Adjust spacing as needed */
-        width: 100px; /* Adjust image width as needed */
-        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 1rem; 
+        width: 100px; 
+        height: auto;
         }
 
         .feature-card h3 {
@@ -173,17 +173,21 @@
 
         footer {
             background-color: var(--secondary-color);
-            color: maroon;
+            color: white;
             padding: 2rem;
             text-align: center;
-            margin-top: auto;
+            margin-top: 2rem; 
+            z-index: 10; 
+            position: relative; 
+            width: 100%; 
+            top: 140px;
         }
 
         .scroll-container {
             white-space: nowrap;
             overflow-x: auto;
             width: 100%;
-            direction: rtl; /* Right to left scrolling */
+            direction: rtl; 
         }
 
         .scroll-container div {
@@ -191,7 +195,7 @@
             padding: 10px 20px;
             font-size: 18px;
             background-color: lightcoral;
-            margin-left: 10px; /* Adjust margin for right-to-left */
+            margin-left: 10px;
         }
 
         @keyframes rotate {
@@ -205,9 +209,10 @@
         .center-text {
         text-align: center;
         }
+
         .photo-booth {
-        position: fixed;
-        bottom: 0;
+        position: relative;
+        top: 760px;
         width: 100%;
         overflow: hidden;
         background-color: #f8f8f8;
@@ -269,53 +274,57 @@
         </div>
     </div>
     <div class="search-container">
-        <input type="text" placeholder="Search for courses, resources, and more...">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
+        <input type="text" id="searchBox" placeholder="Search for features...">
+        <span class="search-icon">🔍</span>
     </div>
 
-    <section class="hero">
-        <div class="center-text">
-            <h1>Welcome to Singapore Education Portal</h1>
-            <p>Your one-stop platform for educational resources and tools</p>
-        </div>
-    </section>
-
-    <div class="feature-container">
+    <div class="feature-container" id="featureContainer">
         <div class="feature-card">
-          <div class="card-body">
             <a href="gpa-calculator.html">
-              <img src="Image/calculator.webp" class="feature-image" alt="GPA Calculator">
-              <h3>GPA Calculator</h3>
+                <img src="Image/calculator.webp" class="feature-image" alt="GPA Calculator">
+                <h3>GPA Calculator</h3>
             </a>
-            <br>
             <p>Calculate your Grade Point Average easily with our intuitive calculator tool.</p>
             <br>
-          </div>
         </div>
         <div class="feature-card">
-          <a href="resources.html">
-            <img src="Image/AcademicSupport.jpg" alt="Educational Resources" class="feature-image">
-            <h3>Educational Resources</h3>
-          </a>
-          <p>Access quality educational materials and resources for various subjects.</p>
-          <br>
+            <a href="resources.html">
+                <img src="Image/AcademicSupport.jpg" alt="Educational Resources" class="feature-image">
+                <h3>Educational Resources</h3>
+            </a>
+            <p>Access quality educational materials and resources for various subjects.</p>
+            <br>
         </div>
         <div class="feature-card">
-          <a href="contact.html">
-            <img src="Image/Resources.webp" alt="Academic Support" class="feature-image">
-            <h3>Academic Support</h3>
-          </a>
-          <p>Get guidance and support for your academic journey in Singapore.</p>
-          <br>
+            <a href="contact.html">
+                <img src="Image/Resources.webp" alt="Academic Support" class="feature-image">
+                <h3>Academic Support</h3>
+            </a>
+            <p>Get guidance and support for your academic journey in Singapore.</p>
         </div>
-      </div>
-    </section>
-    
+    </div>
+
     <footer>
         <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
     </footer>
+
+    <script>
+        // JavaScript for search functionality
+        const searchBox = document.getElementById('searchBox');
+        const featureCards = document.querySelectorAll('.feature-card');
+
+        searchBox.addEventListener('input', () => {
+            const filter = searchBox.value.toLowerCase();
+
+            featureCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (cardText.includes(filter)) {
+                    card.style.display = ''; // Show the card
+                } else {
+                    card.style.display = 'none'; // Hide the card
+                }
+            });
+        });
+    </script>
 </body>
 </html>
