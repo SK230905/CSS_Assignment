@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: maroon;
+            --secondary-color: #333;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f8f8f8;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .calculator-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .course-input {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        input, select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: maroon;
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .calculator-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .current-gpa-section {
+            background-color: #f8f8f8;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .current-gpa-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: bottom;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="homepage.html" class="logo">SG Education</a>
+            <div class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="gpa-calculator.html">GPA Calculator</a>
+                <div class="dropdown">
+                    <a href="resources.html">Educational Resources</a>
+                    <div class="dropdown-content">
+                        <a href="pre-school.html">Pre-School</a>
+                        <a href="primary-school.html">Primary School</a>
+                        <a href="secondary-school.html">Secondary School</a>
+                        <a href="junior-college.html">Junior College</a>
+                        <a href="polytechnic.html">Polytechnic</a>
+                        <a href="university.html">University</a>
+                    </div>
+                </div>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="calculator-container">
+        <h1>GPA Calculator</h1>
+        
+        <div class="current-gpa-section">
+            <h2 class="section-title">Current GPA Information</h2>
+            <div class="current-gpa-inputs">
+                <div>
+                    <input type="number" id="currentGPA" step="0.01" min="0" max="4" placeholder="Enter your current GPA">
+                </div>
+                <div>
+                    <input type="number" id="currentCredits" min="0" placeholder="Enter total credits completed">
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">New Courses</h2>
+        <div id="courses-container"></div>
+        <button onclick="addCourse()">Add Course</button>
+        <button onclick="calculateGPA()">Calculate GPA</button>
+        <div id="result" class="result">
+            <p><b>Calculated GPA: </b></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addCourse() {
+            const container = document.getElementById('courses-container');
+            const courseDiv = document.createElement('div');
+            courseDiv.className = 'course-input';
+            
+            courseDiv.innerHTML = `
+                <input type="text" placeholder="Course Name" class="course-name">
+                <input type="number" placeholder="Credits" class="credits" min="1" max="6">
+                <select class="grade">
+                    <option value="4.0">A</option>
+                    <option value="3.7">A-</option>
+                    <option value="3.3">B+</option>
+                    <option value="3.0">B</option>
+                    <option value="2.7">B-</option>
+                    <option value="2.3">C+</option>
+                    <option value="2.0">C</option>
+                    <option value="1.7">C-</option>
+                    <option value="1.3">D+</option>
+                    <option value="1.0">D</option>
+                    <option value="0.0">F</option>
+                </select>
+                <button onclick="removeCourse(this)">Remove</button>
+            `;
+            
+            container.appendChild(courseDiv);
+        }
+
+        function removeCourse(button) {
+            button.parentElement.remove();
+        }
+
+        function getMotivationalMessage(gpa) {
+            if (gpa >= 3.5) {
+                return `<div class="message success">Keep it up! You're doing relatively well! 🌟</div>`;
+            } else if (gpa < 2.0) {
+                return `<div class="message warning">Time to buck up! You can do better! 💪 Consider visiting your academic advisor for support.</div>`;
+            }
+            return '';
+        }
+
+        function calculateGPA() {
+            // Get current GPA info
+            const currentGPA = parseFloat(document.getElementById('currentGPA').value) || 0;
+            const currentCredits = parseFloat(document.getElementById('currentCredits').value) || 0;
+            
+            // Calculate current quality points
+            const currentPoints = currentGPA * currentCredits;
+
+            // Calculate new courses
+            const courses = document.getElementsByClassName('course-input');
+            let newPoints = 0;
+            let newCredits = 0;
+
+            for (let course of courses) {
+                const credits = parseFloat(course.querySelector('.credits').value) || 0;
+                const grade = parseFloat(course.querySelector('.grade').value) || 0;
+                
+                newPoints += credits * grade;
+                newCredits += credits;
+            }
+
+            // Calculate cumulative GPA
+            const totalCredits = currentCredits + newCredits;
+            const totalPoints = currentPoints + newPoints;
+            const cumulativeGPA = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : 0;
+
+            // Calculate new term GPA
+            const termGPA = newCredits > 0 ? (newPoints / newCredits).toFixed(2) : 0;
+
+            // Get motivational messages
+            const termMessage = getMotivationalMessage(parseFloat(termGPA));
+            const cumulativeMessage = getMotivationalMessage(parseFloat(cumulativeGPA));
+
+            // Display results
+            document.getElementById('result').innerHTML = `
+                <p><strong>New Term GPA:</strong> ${termGPA}</p>
+                <p><strong>Cumulative GPA:</strong> ${cumulativeGPA}</p>
+                ${cumulativeMessage}
+            `;
+        }
+
+        addCourse();
+    </script>
+</body>
+</html>

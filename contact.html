@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Singapore Education Portal</title>
+    <title>Singapore Education Portal</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         * {
             margin: 0;
@@ -12,9 +13,17 @@
             font-family: 'Arial', sans-serif;
         }
 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column; 
+        }
+
         :root {
             --primary-color: maroon;
-            --secondary-color: #333;
+            --secondary-color: maroon;
         }
 
         nav {
@@ -44,6 +53,7 @@
         .nav-links {
             display: flex;
             gap: 2rem;
+            position: relative;
         }
 
         .nav-links a {
@@ -57,68 +67,82 @@
             color: #f8f8f8;
         }
 
-        .contact-container {
-            max-width: 800px;
-            margin: 100px auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .dropdown {
+            position: relative;
         }
 
-        .contact-info {
-            margin-bottom: 2rem;
-            text-align: center;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
-        .contact-form {
-            display: grid;
-            gap: 1rem;
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
         }
 
-        .form-group {
-            display: grid;
-            gap: 0.5rem;
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
         }
 
-        input, textarea {
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 100%;
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        button {
-            background-color: var(--primary-color);
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/400');
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            text-align: center;
+            margin-top: 20px;
         }
 
-        button:hover {
-            background-color: maroon;
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-methods {
+        .features {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
-            text-align: center;
+        }
+        .feature-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         }
 
-        .contact-method {
-            padding: 1rem;
-            background-color: #f8f8f8;
-            border-radius: 4px;
+        .feature-card img {
+        margin-bottom: 1rem; 
+        width: 100px; 
+        height: auto;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero {
+            background-color: rgb(233, 34, 34);
         }
 
         footer {
@@ -126,14 +150,52 @@
             color: white;
             padding: 2rem;
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 2rem; 
+            z-index: 10; 
+            position: relative; 
+            width: 100%; 
+            top: 140px;
+        }
+
+        .scroll-container {
+            white-space: nowrap;
+            overflow-x: auto;
+            width: 100%;
+            direction: rtl; 
+        }
+
+        .scroll-container div {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: lightcoral;
+            margin-left: 10px;
+        }
+
+        .center-text {
+        text-align: center;
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="nav-content">
-            <a href="homepage.html" class="logo">SG Education</a>
-            <div class="nav-links">
-                <a href="homepage.html">Home</a>
-                <a href
+    <div class="nav-content">
+        <a href="homepage.html" class="logo">SG Education</a>
+        <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="gpa-calculator.html">GPA Calculator</a>
+            <div class="dropdown">
+                <a href="resources.html">Educational Resources</a>
+                <div class="dropdown-content">
+                    <a href="pre-school.html">Pre-School</a>
+                    <a href="primary-school.html">Primary School</a>
+                    <a href="secondary-school.html">Secondary School</a>
+                    <a href="junior-college.html">Junior College</a>
+                    <a href="polytechnic.html">Polytechnic</a>
+                    <a href="university.html">University</a>
+                </div>
+            </div>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+</nav>
