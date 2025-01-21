@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singapore Polytechnic Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column; 
+        }
+
+        :root {
+            --primary-color: maroon;
+            --secondary-color: maroon;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f8f8f8;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 120px auto 2rem;
+            gap: 1rem;
+            padding: 0 1rem;
+        }
+
+        .content {
+            flex: 3;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .filters {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 1rem;
+            height: fit-content;
+        }
+
+        .search-container {
+            margin-bottom: 1rem;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .polytechnic-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .polytechnic-card h2 {
+            color: var(--primary-color);
+        }
+
+        .course {
+            margin: 0.5rem 0;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto; 
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">Polytechnic Portal</a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <div class="search-container">
+                <input type="text" id="searchBox" placeholder="Search for courses or CCAs...">
+            </div>
+
+            <div class="polytechnic-list" id="polytechnicList">
+                <!-- Example of dynamic content -->
+                <div class="polytechnic-card">
+                    <h2>Ngee Ann Polytechnic</h2>
+                    <h3>Courses:</h3>
+                    <p class="course">Cybersecurity and Digital Forensics, cut off point: 11</p>
+                    <p class="course">Animation & Visual Effects, cut off point: 12</p>
+                    <p class="course">Biomedical Engineering, cut off point: 13</p>
+                    <p class="course">Business Studies, cut off point: 12</p>
+                    <p class="course">Early Childhood Education, cut off point: 14</p>
+                    <h3>CCAs:</h3>
+                    <p>Taekwondo, Debate Club, Drama Society</p>
+                </div>
+                <div class="polytechnic-card">
+                    <h2>Temasek Polytechnic</h2>
+                    <h3>Courses:</h3>
+                    <p class="course">Game Design, cut off point: 14</p>
+                    <p class="course">Hospitality Management, cut off point: 13</p>
+                    <h3>CCAs:</h3>
+                    <p>Robotics Club, Photography, Basketball</p>
+                </div>
+                <div class="polytechnic-card">
+                    <h2>Nanyang Polytechnic</h2>
+                    <h3>Courses:</h3>
+                    <p class="course">Animation, cut off point: 15</p>
+                    <p class="course">Pharmacy Science, cut off point: 10</p>
+                    <h3>CCAs:</h3>
+                    <p>Music Club, Chess Club, Swimming Team</p>
+                </div>
+                <div class="polytechnic-card">
+                    <h2>Republic Polytechnic</h2>
+                    <h3>Courses:</h3>
+                    <p class="course">Digital Media, cut off point: 16</p>
+                    <p class="course">Sports Science, cut off point: 12</p>
+                    <h3>CCAs:</h3>
+                    <p>Track & Field, Environmental Club, Coding Club</p>
+                </div>
+                <div class="polytechnic-card">
+                    <h2>Singapore Polytechnic</h2>
+                    <h3>Courses:</h3>
+                    <p class="course">Marine Engineering, cut off point: 13</p>
+                    <p class="course">Applied AI, cut off point: 11</p>
+                    <h3>CCAs:</h3>
+                    <p>Robotics, Dance, Badminton</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <h3>Filters</h3>
+            <label for="polytechnicFilter">Polytechnic:</label>
+            <select id="polytechnicFilter">
+                <option value="all">All</option>
+                <option value="ngee-ann">Ngee Ann Polytechnic</option>
+                <option value="temasek">Temasek Polytechnic</option>
+                <option value="nanyang">Nanyang Polytechnic</option>
+                <option value="republic">Republic Polytechnic</option>
+                <option value="singapore">Singapore Polytechnic</option>
+            </select>
+
+            <label for="cutOffFilter">Cut Off Point:</label>
+            <input type="number" id="cutOffFilter" placeholder="Max Cut Off Point">
+
+            <button onclick="applyFilters()">Apply</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Singapore Polytechnic Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for search and filter functionality
+        const searchBox = document.getElementById('searchBox');
+        const polytechnicList = document.getElementById('polytechnicList');
+
+        searchBox.addEventListener('input', () => {
+            const filter = searchBox.value.toLowerCase();
+            const polytechnicCards = polytechnicList.getElementsByClassName('polytechnic-card');
+
+            Array.from(polytechnicCards).forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        function applyFilters() {
+            const polytechnicFilter = document.getElementById('polytechnicFilter').value;
+            const cutOffFilter = document.getElementById('cutOffFilter').value;
+            const polytechnicCards = polytechnicList.getElementsByClassName('polytechnic-card');
+
+            Array.from(polytechnicCards).forEach(card => {
+                const polyName = card.querySelector('h2').textContent.toLowerCase();
+                const courses = card.querySelectorAll('.course');
+
+                let matchesPoly = polytechnicFilter === 'all' || polyName.includes(polytechnicFilter);
+                let matchesCutOff = true;
+
+                if (cutOffFilter) {
+                    matchesCutOff = Array.from(courses).some(course => {
+                        const cutOff = parseInt(course.textContent.match(/\d+$/));
+                        return cutOff <= cutOffFilter;
+                    });
+                }
+
+                card.style.display = matchesPoly && matchesCutOff ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
