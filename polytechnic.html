@@ -90,6 +90,14 @@
             padding: 1rem;
             height: fit-content;
         }
+        .filters label {
+            display: block;
+            margin-bottom: 0.5rem; /* Adds spacing for better readability */
+        }
+
+        .filters input {
+            margin-bottom: 1rem; /* Adds spacing below the input field */
+        }
 
         .search-container {
             margin-bottom: 1rem;
@@ -207,7 +215,7 @@
             </select>
 
             <label for="cutOffFilter">Cut Off Point:</label>
-            <input type="number" id="cutOffFilter" placeholder="Max Cut Off Point">
+            <input type="number" id="cutOffFilter" placeholder="Cut Off Point">
 
             <button onclick="applyFilters()">Apply</button>
         </div>
@@ -242,22 +250,29 @@
             const polytechnicCards = polytechnicList.getElementsByClassName('polytechnic-card');
 
             Array.from(polytechnicCards).forEach(card => {
-                const polyName = card.querySelector('h2').textContent.toLowerCase();
-                const courses = card.querySelectorAll('.course');
+                const polytechnicName = card.querySelector('h2').textContent.toLowerCase();
+                const courses = card.getElementsByClassName('course');
 
-                let matchesPoly = polytechnicFilter === 'all' || polyName.includes(polytechnicFilter);
-                let matchesCutOff = true;
+                let matchesPolytechnic = polytechnicFilter === 'all' || polytechnicName.includes(polytechnicFilter.replace('-', ' '));
+                let anyCourseVisible = false;
 
-                if (cutOffFilter) {
-                    matchesCutOff = Array.from(courses).some(course => {
-                        const cutOff = parseInt(course.textContent.match(/\d+$/));
-                        return cutOff <= cutOffFilter;
-                    });
-                }
+                Array.from(courses).forEach(course => {
+                    const cutOffPoint = parseInt(course.textContent.match(/\d+/));
+                    if (cutOffFilter && cutOffPoint >= cutOffFilter && matchesPolytechnic) {
+                        course.style.display = ''; // Show course
+                        anyCourseVisible = true;
+                    } else {
+                        course.style.display = 'none'; // Hide course
+                    }
+                });
 
-                card.style.display = matchesPoly && matchesCutOff ? '' : 'none';
+
+                card.style.display = anyCourseVisible ? '' : 'none';
             });
-        }
+}
+
+
+
     </script>
 </body>
 </html>
