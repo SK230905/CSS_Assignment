@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universities in Singapore</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        :root {
+            --primary-color: maroon;
+            --secondary-color: maroon;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .school-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .school-box {
+            flex: 1 1 calc(33.333% - 10px);
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            position: relative;
+            transition: transform 0.3s ease-in-out; 
+            cursor: pointer; /* Changes the cursor to a pointer when hovering over the box */
+        }
+
+        .school-box img {
+            margin-top: 10px;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .school-box:hover {
+            transform: scale(1.1);
+            z-index: 1; 
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;  
+            left: 10px; 
+            background-color: #fff;
+            color: var(--primary-color);
+            padding: 5px 10px;  
+            font-size: 0.8rem;  
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="homepage.html" class="back-button">Back to Homepage</a>
+        <h1>Universities in Singapore</h1>
+    </header>
+
+    <main>
+        <div class="search-container">
+            <input type="text" id="search" class="search-bar" placeholder="Search for universities...">
+        </div>
+
+        <div class="school-list" id="school-list">
+            <a href="nus.html" class="school-box"> 
+                <h3>National University of Singapore</h3>
+                <img src="Image/nus.jpg" alt="National University of Singapore">
+            </a>
+
+            <a href="ntu.html" class="school-box"> 
+                <h3>Nanyang Technological University</h3>
+                <img src="Image/ntu.jpg" alt="Nanyang Technological University">
+            </a>
+
+            <a href="smu.html" class="school-box"> 
+                <h3>Singapore Management University</h3>
+                <img src="Image/smu.jpg" alt="Singapore Management University">
+            </a>
+
+            <a href="suss.html" class="school-box"> 
+                <h3>Singapore University of Social Sciences</h3>
+                <img src="Image/suss.jpg" alt="Singapore University of Social Sciences">
+            </a>
+
+            <a href="sit.html" class="school-box"> 
+                <h3>Singapore Institute of Technology</h3>
+                <img src="Image/sit.jpg" alt="Singapore Institute of Technology">
+            </a>
+
+            <a href="sutd.html" class="school-box"> 
+                <h3>Singapore University of Technology and Design</h3>
+                <img src="Image/sutd.jpg" alt="Singapore University of Technology and Design">
+            </a>
+
+            <a href="uas.html" class="school-box"> 
+                <h3>University of the Arts Singapore</h3>
+                <img src="Image/uas.jpg" alt="University of the Arts Singapore">
+            </a>
+        </div>
+    </main>
+
+    <script>
+        const searchInput = document.getElementById('search');
+        const schoolList = document.getElementById('school-list');
+        const schoolBoxes = schoolList.getElementsByClassName('school-box');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            Array.from(schoolBoxes).forEach(function(box) {
+                const name = box.querySelector('h3').textContent.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    box.style.display = '';
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

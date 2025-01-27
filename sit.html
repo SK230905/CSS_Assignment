@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National University of Singapore</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        :root {
+            --primary-color: maroon;
+            --secondary-color: maroon;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .full-width-image {
+        width: 100%; 
+        height: auto; 
+        display: block; 
+        }
+
+        .main-heading {
+        font-size: 2.5rem;
+        margin-top: 20px; 
+        color: #0c036e; 
+        }
+
+        .sub-text {
+            font-size: 1.2rem; 
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="back-button" onclick="goBack()">← Back</a>
+        <h1>Singapore Institute of Technology</h1>
+    </header>
+
+    <main>
+        <img src="Image/sit.jpg" alt="Singapore Institute of Technology" class="full-width-image">
+        <h1 class="main-heading">SIT</h1>
+        <p class="sub-text">As the university for industry and Singapore's first university of applied learning, the Singapore Institute of Technology (SIT) offers industry-relevant degree programmes that prepare its graduates to be work- and future-ready professionals. Its mission is to maximise the potential of its learners and to innovate with industry, through an integrated applied learning and research approach, so as to contribute to the economy and society.
+        </p>
+    </main>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
