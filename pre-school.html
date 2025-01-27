@@ -26,7 +26,7 @@
 
         nav {
             background-color: var(--primary-color);
-            padding: 1rem 2rem;
+            padding: 1rem 3rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -38,21 +38,21 @@
 
         .logo {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
-            position: relative;
+            gap: 3rem;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.1rem;
             transition: color 0.3s;
         }
 
@@ -74,7 +74,7 @@
         }
 
         .dropdown-content a {
-            color: black;
+            color: rgb(250, 250, 250);
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -90,7 +90,7 @@
 
         .hero {
             background-color: var(--primary-color);
-            color: white;
+            color: rgb(255, 255, 255);
             text-align: center;
             padding: 3rem 1rem;
             margin-top: 4rem;
@@ -99,6 +99,7 @@
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: white;
         }
 
         .hero p {
@@ -153,10 +154,37 @@
             margin-bottom: 10px;
             background-color: #f0f0f0;
             border-radius: 4px;
+            position: relative;
         }
 
         li.hidden {
             display: none;
+        }
+
+        li:hover .banner {
+            display: flex;
+        }
+
+        .banner {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-direction: row;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .banner img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
         }
 
         footer {
@@ -192,24 +220,22 @@
 </head>
 <body>
     <nav>
-        <div class="nav-content">
-            <a href="homepage.html" class="logo">SG Education</a>
-            <div class="nav-links">
-                <a href="homepage.html">Home</a>
-                <a href="gpa-calculator.html">GPA Calculator</a>
-                <div class="dropdown">
-                    <a href="javascript:void(0)">Education Levels</a>
-                    <div class="dropdown-content">
-                        <a href="pre-school.html">Pre-School</a>
-                        <a href="primary-school.html">Primary School</a>
-                        <a href="secondary-school.html">Secondary School</a>
-                        <a href="junior-college.html">Junior College</a>
-                        <a href="polytechnic.html">Polytechnic</a>
-                        <a href="university.html">University</a>
-                    </div>
+        <a href="homepage.html" class="logo">SG Education</a>
+        <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="gpa-calculator.html">GPA Calculator</a>
+            <div class="dropdown">
+                <a href="javascript:void(0)">Education Levels</a>
+                <div class="dropdown-content">
+                    <a href="pre-school.html">Pre-School</a>
+                    <a href="primary-school.html">Primary School</a>
+                    <a href="secondary-school.html">Secondary School</a>
+                    <a href="junior-college.html">Junior College</a>
+                    <a href="polytechnic.html">Polytechnic</a>
+                    <a href="university.html">University</a>
                 </div>
-                <a href="contact.html">Contact Us</a>
             </div>
+            <a href="contact.html">Contact Us</a>
         </div>
     </nav>
     
@@ -220,26 +246,68 @@
 
     <div class="search-container">
         <div class="search-wrapper">
-            <input type="text" id="searchBox" placeholder="Search for a preschool...">
+            <input type="text" id="searchBox" placeholder="Search for a preschool..">
             <span class="search-icon">🔍</span>
         </div>
     </div>
 
     <div class="container">
         <ul id="preschoolList">
-            <!-- Example list items, replace or expand with actual data -->
-            <li>Bright Minds Preschool</li>
-            <li>Happy Tots Learning Centre</li>
-            <li>Little Stars Academy</li>
-            <li>Sunshine Preschool</li>
-            <li>Rainbow Kids School</li>
-            <li>Banyan Tree Education</li>
-            <li>Healthy Start Child Development Centre</li>
-            <li>PCF Sparkletots Preschool</li>
-            <li>MY FIRST SKOOL</li>
-            <li>Carpe Diem Starlets Sparkle</li>
-            <li>The Orange Academy</li>
-            <li>Hope Childcare Centre</li>
+            <li>Bright Minds Preschool
+                <div class="banner">
+                    <img src="Image/preschool_pics/bright-minds.jpg" alt="Bright Minds">
+                </div>
+            </li>
+            <li>Happy Tots Learning Centre
+                <div class="banner">
+                    <img src="Image/preschool_pics/happy-tots.jpg" alt="Happy Tots">
+                </div>
+            </li>
+            <li>Sunshine Preschool
+                <div class="banner">
+                    <img src="Image/preschool_pics/sunshine-preschool.jpg" alt="Sunshine Preschool">
+                </div>
+            </li>
+            <li>Rainbow Cove PreSchool
+                <div class="banner">
+                    <img src="Image/preschool_pics/rainbow-kids.jpg" alt="Rainbow Kids">
+                </div>
+            </li>
+            <li>Banyan Tree Education
+                <div class="banner">
+                    <img src="Image/preschool_pics/banyan-tree.jpg" alt="Banyan Tree">
+                </div>
+            </li>
+            <li>Healthy Start Child Development Centre
+                <div class="banner">
+                    <img src="Image/preschool_pics/healthy-start.jpg" alt="Healthy Start">
+                </div>
+            </li>
+            <li>PCF Sparkletots Preschool
+                <div class="banner">
+                    <img src="Image/preschool_pics/pcf-sparkletots.jpg" alt="PCF Sparkletots">
+                </div>
+            </li>
+            <li>MY FIRST SKOOL
+                <div class="banner">
+                    <img src="Image/preschool_pics/my-first-skool.jpg" alt="MY FIRST SKOOL">
+                </div>
+            </li>
+            <li>Carpe Diem Starlets Sparkle
+                <div class="banner">
+                    <img src="Image/preschool_pics/carpe-diem.jpg" alt="Carpe Diem">
+                </div>
+            </li>
+            <li>The Orange Academy
+                <div class="banner">
+                    <img src="Image/preschool_pics/orange-academy.jpg" alt="The Orange Academy">
+                </div>
+            </li>
+            <li>Hope Childcare Centre
+                <div class="banner">
+                    <img src="Image/preschool_pics/hope-childcare.jpg" alt="Hope Childcare">
+                </div>
+            </li>
         </ul>
     </div>
 
