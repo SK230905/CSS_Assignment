@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singapore Education Portal</title>
+    <title>Contact Us - SG Education</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         * {
@@ -95,54 +95,51 @@
             display: block;
         }
 
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/400');
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        h1 {
+            margin-top: 75px;
             text-align: center;
+            color: maroon;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
             margin-top: 20px;
+            padding: 10px;
+            background: maroon;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .features {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .feature-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        }
-
-        .feature-card img {
-        margin-bottom: 1rem; 
-        width: 100px; 
-        height: auto;
-        }
-
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .hero {
-            background-color: rgb(233, 34, 34);
+        .contact-form button:hover {
+            background: darkred;
         }
 
         footer {
@@ -157,45 +154,111 @@
             top: 140px;
         }
 
-        .scroll-container {
-            white-space: nowrap;
-            overflow-x: auto;
-            width: 100%;
-            direction: rtl; 
+        .contact-container {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        flex-wrap: wrap;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         }
 
-        .scroll-container div {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: lightcoral;
-            margin-left: 10px;
+        .contact-image{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
         }
 
-        .center-text {
-        text-align: center;
+        .contact-image img {
+            width: 50%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex:1;
         }
+
+        .contact-map {
+            flex: 1 1 calc(33.333% - 10px);
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+
     </style>
 </head>
 <body>
     <nav>
-    <div class="nav-content">
-        <a href="homepage.html" class="logo">SG Education</a>
-        <div class="nav-links">
-            <a href="homepage.html">Home</a>
-            <a href="gpa-calculator.html">GPA Calculator</a>
-            <div class="dropdown">
-                <a href="javascript:void(0)">Education Levels</a>
-                <div class="dropdown-content">
-                    <a href="pre-school.html">Pre-School</a>
-                    <a href="primary-school.html">Primary School</a>
-                    <a href="secondary-school.html">Secondary School</a>
-                    <a href="junior-college.html">Junior College</a>
-                    <a href="polytechnic.html">Polytechnic</a>
-                    <a href="university.html">University</a>
+        <div class="nav-content">
+            <a href="homepage.html" class="logo">SG Education</a>
+            <div class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="gpa-calculator.html">GPA Calculator</a>
+                <div class="dropdown">
+                    <a href="javascript:void(0)">Education Levels</a>
+                    <div class="dropdown-content">
+                        <a href="pre-school.html">Pre-School</a>
+                        <a href="primary-school.html">Primary School</a>
+                        <a href="secondary-school.html">Secondary School</a>
+                        <a href="junior-college.html">Junior College</a>
+                        <a href="polytechnic.html">Polytechnic</a>
+                        <a href="university.html">University</a>
+                    </div>
                 </div>
+                <a href="contact.html">Contact Us</a>
             </div>
-            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+    <div class="container">
+        <br>
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+            <p>Email: support@sgeducation.com</p>
+            <p>Phone: +65 6872 2220</p>
+            <p>Address: 1 North Buona Vista Drive, Singapore 138675</p>
+        </div>
+        
+        <form class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+    
+        <!-- Right Section: Image -->
+        <div class="contact-image">
+            <img src="Image/moe.jpg" alt="Ministry of Education">
         </div>
     </div>
-</nav>
+
+    <div class="contact-map">
+        <img src="Image/moe.jpg" alt="Ministry of Education">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127408.01392087755!2d103.7463781055508!3d1.3520830277978675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1bfaf30b24cb%3A0x57b5e47e23b63d7b!2s1%20North%20Buona%20Vista%20Dr%2C%20Singapore%20138675!5e0!3m2!1sen!2ssg!4v1234567890123!5m2!1sen!2ssg" 
+            width="60%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy"> 
+            </iframe>
+    </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
