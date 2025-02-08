@@ -1,3 +1,4 @@
+<!-- Jaya -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -177,15 +178,21 @@
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
         <div class="nav-content">
+            <!-- Logo that links to the homepage -->
             <a href="homepage.html" class="logo">SG Education</a>
             <div class="nav-links">
+                <!-- Links to different pages on the website -->
                 <a href="homepage.html">Home</a>
                 <a href="gpa-calculator.html">GPA Calculator</a>
+                
+                <!-- Dropdown menu for Education Levels -->
                 <div class="dropdown">
                     <a href="javascript:void(0)">Education Levels</a>
                     <div class="dropdown-content">
+                        <!-- Dropdown items (links to different educational levels) -->
                         <a href="pre-school.html">Pre-School</a>
                         <a href="primary-school.html">Primary School</a>
                         <a href="secondary-school.html">Secondary School</a>
@@ -194,22 +201,30 @@
                         <a href="university.html">University</a>
                     </div>
                 </div>
+
+                <!-- Link to Contact Us page -->
                 <a href="contact.html">Contact Us</a>
             </div>
         </div>
     </nav>
     
+    <!-- Hero section with a title and description -->
     <div class="hero">
         <h1>Primary School Finder</h1>
         <p>Find the perfect primary school for your child in Singapore</p>
     </div>
 
+    <!-- Search bar container -->
     <div class="search-container">
+        <!-- Input field for searching schools (calls searchSchools() function on keyup) -->
         <input type="text" id="schoolSearch" placeholder="Search for a school..." onkeyup="searchSchools()">
     </div>
 
+    <!-- Container for displaying school cards -->
     <div class="school-container" id="schoolContainer">
-        <!-- Gan Eng Seng Primary School -->
+        <!-- School cards containing school details -->
+        <!-- Each card has a data-name attribute to store the school's name for searching purposes -->
+        
         <div class="school-card" data-name="Gan Eng Seng Primary School">
             <img class="school-image" src="Image/primary_school_pics/gan-eng-seng.jpg" alt="Gan Eng Seng Primary School">
             <div class="school-info">
@@ -218,7 +233,8 @@
                 <p>Founded: 2002</p>
             </div>
         </div>
-        <!-- Cantonment Primary School -->
+
+        <!-- Repeat the same structure for other schools (Cantonment, River Valley, etc.) -->
         <div class="school-card" data-name="Cantonment Primary School">
             <img class="school-image" src="Image/primary_school_pics/cantonment.jpg" alt="Cantonment Primary School">
             <div class="school-info">
@@ -227,6 +243,7 @@
                 <p>Founded: 2011</p>
             </div>
         </div>
+
         <!-- Rivervalley Primary School -->
         <div class="school-card" data-name="River Valley Primary School">
             <img class="school-image" src="Image/primary_school_pics/rivervalley.jpg" alt="Rivervally Primary School">
@@ -319,17 +336,27 @@
         </div>
     </div>
 
+    <!-- Footer section -->
     <footer>
         <p>&copy; 2025 SG Education. All Rights Reserved.</p>
     </footer>
 
+    <!-- Script for the search functionality -->
     <script>
+        // Function to search through schools by name
         function searchSchools() {
+            // Get the value from the search input field and convert it to lowercase
             const searchTerm = document.getElementById('schoolSearch').value.toLowerCase();
+            
+            // Get all school cards
             const schoolCards = document.querySelectorAll('.school-card');
 
+            // Loop through each school card and check if the school name includes the search term
             schoolCards.forEach((card) => {
+                // Get the school's name stored in the data-name attribute and convert it to lowercase
                 const schoolName = card.getAttribute('data-name').toLowerCase();
+
+                // If the school name includes the search term, display the card, otherwise hide it
                 if (schoolName.includes(searchTerm)) {
                     card.style.display = 'block';
                 } else {
