@@ -244,9 +244,9 @@
             </div>
         </div>
 
-        <h2 class="section-title">New Courses</h2>
+        <h2 class="section-title">Current Modules</h2>
         <div id="courses-container"></div>
-        <button onclick="addCourse()">Add Course</button>
+        <button onclick="addCourse()">Add Module</button>
         <button onclick="calculateGPA()">Calculate GPA</button>
         <div id="result" class="result">
             <p><b>Calculated GPA: </b></p>
@@ -264,7 +264,7 @@
             courseDiv.className = 'course-input';
             
             courseDiv.innerHTML = `
-                <input type="text" placeholder="Course Name" class="course-name">
+                <input type="text" placeholder="Module Name" class="Module-name">
                 <input type="number" placeholder="Credits" class="credits" min="1" max="6">
                 <select class="grade">
                     <option value="4.0">A</option>
