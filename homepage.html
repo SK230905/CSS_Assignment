@@ -1,3 +1,4 @@
+<!-- Shavelin -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -246,6 +247,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation bar -->
     <nav>
         <div class="nav-content">
             <a href="homepage.html" class="logo">SG Education</a>
@@ -267,6 +269,7 @@
             </div>
         </div>
     </nav>
+    <!-- Carousel section -->
     <div class="photo-booth">
         <div class="photo-track">
             <img src="Image/preschool1.jpg" alt="Photo 1" class="photo">
@@ -275,15 +278,14 @@
             <img src="Image/School1.jpg" alt="Photo 4" class="photo">
             <img src="Image/School2.avif" alt="Photo 5" class="photo">
             <img src="Image/School3.webp" alt="Photo 6" class="photo">
-
-            <!-- Add more images as needed -->
         </div>
     </div>
+    <!-- Search Bar -->
     <div class="search-container">
         <input type="text" id="searchBox" placeholder="Search for features...">
         <span class="search-icon">🔍</span>
     </div>
-
+    <!-- Description Column -->
     <div class="feature-container" id="featureContainer">
         <div class="feature-card">
             <a href="gpa-calculator.html">
@@ -310,17 +312,18 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
     </footer>
 
     <script>
         // JavaScript for search functionality
-        const searchBox = document.getElementById('searchBox');
-        const featureCards = document.querySelectorAll('.feature-card');
+        const searchBox = document.getElementById('searchBox'); // Get the search box element
+        const featureCards = document.querySelectorAll('.feature-card'); // Get all feature cards
 
-        searchBox.addEventListener('input', () => {
-            const filter = searchBox.value.toLowerCase();
+        searchBox.addEventListener('input', () => { // Listen for input events
+            const filter = searchBox.value.toLowerCase(); // Get the search query and convert to lowercase to ensure that the search is case-insensitive
 
             featureCards.forEach(card => {
                 const cardText = card.textContent.toLowerCase();
