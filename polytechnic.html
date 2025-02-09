@@ -38,6 +38,20 @@
             z-index: 100;
         }
 
+        :root {
+            --primary-color: maroon;
+            --secondary-color: maroon;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
         .nav-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -56,6 +70,7 @@
         .nav-links {
             display: flex;
             gap: 2rem;
+            position: relative;
         }
 
         .nav-links a {
@@ -67,6 +82,34 @@
 
         .nav-links a:hover {
             color: #f8f8f8;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .container {
@@ -166,10 +209,21 @@
 <body>
     <nav>
         <div class="nav-content">
-            <a href="#" class="logo">Polytechnic Portal</a>
+            <a href="homepage.html" class="logo">SG Education</a>
             <div class="nav-links">
                 <a href="homepage.html">Home</a>
-                <a href="#">About</a>
+                <a href="gpa-calculator.html">GPA Calculator</a>
+                <div class="dropdown">
+                    <a href="javascript:void(0)">Education Levels</a>
+                    <div class="dropdown-content">
+                        <a href="pre-school.html">Pre-School</a>
+                        <a href="primary-school.html">Primary School</a>
+                        <a href="secondary-school.html">Secondary School</a>
+                        <a href="junior-college.html">Junior College</a>
+                        <a href="polytechnic.html">Polytechnic</a>
+                        <a href="university.html">University</a>
+                    </div>
+                </div>
                 <a href="contact.html">Contact Us</a>
             </div>
         </div>

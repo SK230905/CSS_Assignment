@@ -1,3 +1,5 @@
+<!-- Jaya -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +28,16 @@
 
         nav {
             background-color: var(--primary-color);
-            padding: 1rem 2rem;
+            padding: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -89,16 +96,17 @@
         }
 
         .hero {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 4rem;
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 4rem 1rem;
+        margin-top: 0; /* Remove the top margin */
         }
 
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            color: white;
         }
 
         .hero p {
@@ -186,14 +194,6 @@
             border-radius: 4px;
         }
 
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -215,15 +215,30 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        footer {
+            background-color: maroon;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem; 
+            z-index: 10; 
+            position: relative; 
+            width: 100%; 
+            top: 140px;
+        }
+
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
         <div class="nav-content">
+            <!-- Website Logo -->
             <a href="homepage.html" class="logo">SG Education</a>
             <div class="nav-links">
                 <a href="homepage.html">Home</a>
                 <a href="gpa-calculator.html">GPA Calculator</a>
+                <!-- Dropdown for different education levels -->
                 <div class="dropdown">
                     <a href="javascript:void(0)">Education Levels</a>
                     <div class="dropdown-content">
@@ -240,18 +255,21 @@
         </div>
     </nav>
     
+    <!-- Hero Section (Introduction) -->
     <div class="hero">
         <h1>Preschool Finder</h1>
         <p>Find the perfect preschool for your child in Singapore</p>
     </div>
 
+    <!-- Search Bar -->
     <div class="search-container">
         <div class="search-wrapper">
-            <input type="text" id="searchBox" placeholder="Search for a preschool...">
+            <input type="text" id="searchBox" placeholder="Search for a preschool..">
             <span class="search-icon">🔍</span>
         </div>
     </div>
 
+    <!-- Preschool List -->
     <div class="container">
         <ul id="preschoolList">
             <li>Bright Minds Preschool
@@ -312,19 +330,18 @@
         </ul>
     </div>
 
-    <footer>
-        &copy; 2025 SG Education. All rights reserved.
-    </footer>
-
+    <!-- JavaScript for search functionality -->
     <script>
-        // JavaScript for search functionality
+        // Get search box and preschool list elements
         const searchBox = document.getElementById('searchBox');
         const preschoolList = document.getElementById('preschoolList');
         const listItems = preschoolList.getElementsByTagName('li');
 
+        // Event listener to filter preschools based on search input
         searchBox.addEventListener('input', () => {
             const filter = searchBox.value.toLowerCase();
 
+            // Loop through list items and hide those that don't match the search
             for (let i = 0; i < listItems.length; i++) {
                 const itemText = listItems[i].textContent.toLowerCase();
                 if (itemText.includes(filter)) {
@@ -335,5 +352,10 @@
             }
         });
     </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
+    </footer>
 </body>
 </html>

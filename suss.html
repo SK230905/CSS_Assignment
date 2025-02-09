@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National University of Singapore</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        :root {
+            --primary-color: maroon;
+            --secondary-color: maroon;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .full-width-image {
+        width: 100%; 
+        height: auto; 
+        display: block; 
+        }
+
+        .main-heading {
+        font-size: 2.5rem;
+        margin-top: 20px; 
+        color: #0c036e; 
+        }
+
+        .sub-text {
+            font-size: 1.2rem; 
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="back-button" onclick="goBack()">← Back</a>
+        <h1>Singapore University of Social Sciences</h1>
+    </header>
+
+    <main>
+        <img src="Image/suss.jpg" alt="Singapore University of Social Sciences" class="full-width-image">
+        <h1 class="main-heading">SUSS</h1>
+        <p class="sub-text">We believe in educating the whole person – cognitively, socially and creatively through our multi-faceted and experiential applied learning pedagogy. This empowers our students to be purposeful global citizens that provide impactful solutions to the society.
+        </p>
+    </main>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

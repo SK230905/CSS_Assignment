@@ -1,3 +1,4 @@
+<!-- Shavelin -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,15 +193,22 @@
         }
 
         footer {
-            background-color: var(--secondary-color);
+            background-color: maroon;
             color: white;
             padding: 2rem;
             text-align: center;
-            margin-top: bottom;
+            margin-top: 2rem; 
+            z-index: 10; 
+            position: relative; 
+            width: 100%; 
+            top: 140px;
         }
+
+
     </style>
 </head>
 <body>
+    <!-- Navigation bar -->
     <nav>
         <div class="nav-content">
             <a href="homepage.html" class="logo">SG Education</a>
@@ -229,7 +237,7 @@
         <div class="current-gpa-section">
             <h2 class="section-title">Current GPA Information</h2>
             <div class="current-gpa-inputs">
-                <div>
+                <div> <!-- Current GPA input -->
                     <input type="number" id="currentGPA" step="0.01" min="0" max="4" placeholder="Enter your current GPA">
                 </div>
                 <div>
@@ -238,10 +246,10 @@
             </div>
         </div>
 
-        <h2 class="section-title">New Courses</h2>
+        <h2 class="section-title">Current Modules</h2>
         <div id="courses-container"></div>
-        <button onclick="addCourse()">Add Course</button>
-        <button onclick="calculateGPA()">Calculate GPA</button>
+        <button onclick="addCourse()">Add Module</button> <!-- Add module button -->
+        <button onclick="calculateGPA()">Calculate GPA</button> <!-- Calculate GPA button -->
         <div id="result" class="result">
             <p><b>Calculated GPA: </b></p>
         </div>
@@ -258,8 +266,8 @@
             courseDiv.className = 'course-input';
             
             courseDiv.innerHTML = `
-                <input type="text" placeholder="Course Name" class="course-name">
-                <input type="number" placeholder="Credits" class="credits" min="1" max="6">
+                <input type="text" placeholder="Module Name" class="Module-name">
+                <input type="number" placeholder="Credits" class="credits" min="1" max="6"> 
                 <select class="grade">
                     <option value="4.0">A</option>
                     <option value="3.7">A-</option>
@@ -267,17 +275,17 @@
                     <option value="3.0">B</option>
                     <option value="2.7">B-</option>
                     <option value="2.3">C+</option>
-                    <option value="2.0">C</option>
+                    <option value="2.0">C</option> 
                     <option value="1.7">C-</option>
                     <option value="1.3">D+</option>
                     <option value="1.0">D</option>
                     <option value="0.0">F</option>
                 </select>
                 <button onclick="removeCourse(this)">Remove</button>
-            `;
+            `; // Course input template
             
             container.appendChild(courseDiv);
-        }
+        } // Add course function
 
         function removeCourse(button) {
             button.parentElement.remove();
@@ -290,15 +298,15 @@
                 return `<div class="message warning">Time to buck up! You can do better! 💪 Consider visiting your academic advisor for support.</div>`;
             }
             return '';
-        }
+        } // Get motivational message function
 
         function calculateGPA() {
             // Get current GPA info
-            const currentGPA = parseFloat(document.getElementById('currentGPA').value) || 0;
-            const currentCredits = parseFloat(document.getElementById('currentCredits').value) || 0;
+            const currentGPA = parseFloat(document.getElementById('currentGPA').value) || 0; // Get current GPA
+            const currentCredits = parseFloat(document.getElementById('currentCredits').value) || 0; // Get current credits
             
             // Calculate current quality points
-            const currentPoints = currentGPA * currentCredits;
+            const currentPoints = currentGPA * currentCredits; 
 
             // Calculate new courses
             const courses = document.getElementsByClassName('course-input');
@@ -306,11 +314,11 @@
             let newCredits = 0;
 
             for (let course of courses) {
-                const credits = parseFloat(course.querySelector('.credits').value) || 0;
-                const grade = parseFloat(course.querySelector('.grade').value) || 0;
+                const credits = parseFloat(course.querySelector('.credits').value) || 0; // Get credits
+                const grade = parseFloat(course.querySelector('.grade').value) || 0; // Get grade
                 
-                newPoints += credits * grade;
-                newCredits += credits;
+                newPoints += credits * grade; // Calculate new quality points
+                newCredits += credits; // Calculate new credits
             }
 
             // Calculate cumulative GPA
@@ -322,16 +330,16 @@
             const termGPA = newCredits > 0 ? (newPoints / newCredits).toFixed(2) : 0;
 
             // Get motivational messages
-            const termMessage = getMotivationalMessage(parseFloat(termGPA));
+            const termMessage = getMotivationalMessage(parseFloat(termGPA)); //
             const cumulativeMessage = getMotivationalMessage(parseFloat(cumulativeGPA));
 
             // Display results
-            document.getElementById('result').innerHTML = `
-                <p><strong>New Term GPA:</strong> ${termGPA}</p>
+            document.getElementById('result').innerHTML = ` 
+                <p><strong>New Term GPA:</strong> ${termGPA}</p> 
                 <p><strong>Cumulative GPA:</strong> ${cumulativeGPA}</p>
                 ${cumulativeMessage}
-            `;
-        }
+            `; 
+        } 
 
         addCourse();
     </script>

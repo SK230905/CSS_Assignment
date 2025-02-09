@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secondary Schools Portal</title>
+    <!-- keep style of all pages the same -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column; 
+        }
+
+        :root {
+            --primary-color: maroon;
+            --secondary-color: maroon;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 4rem; /* Add padding to compensate for the fixed nav bar */
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f8f8f8;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .school-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .school-box {
+            flex: 1 1 calc(33.333% - 10px);
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .school-box img {
+            margin-top: 10px;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .school-box .hover-text {
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        }
+
+        .school-box:hover .hover-text {
+            display: block; 
+        }
+        
+            .back-button {
+            position: absolute;
+            top: 10px;  
+            left: 10px; 
+            background-color: #fff;
+            color: var(--primary-color);
+            padding: 5px 10px;  
+            font-size: 0.8rem;  
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+
+        footer {
+            background-color:maroon;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem; 
+            z-index: 10; 
+            position: relative; 
+            width: 100%; 
+            top: 140px;
+        }
+        
+    </style>
+</head>
+<!-- keep navigation ar for all pages and to go back -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="homepage.html" class="logo">SG Education</a>
+            <div class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="gpa-calculator.html">GPA Calculator</a>
+                <div class="dropdown">
+                    <a href="javascript:void(0)">Education Levels</a>
+                    <div class="dropdown-content">
+                        <a href="pre-school.html">Pre-School</a>
+                        <a href="primary-school.html">Primary School</a>
+                        <a href="secondary-school.html">Secondary School</a>
+                        <a href="junior-college.html">Junior College</a>
+                        <a href="polytechnic.html">Polytechnic</a>
+                        <a href="university.html">University</a>
+                    </div>
+                </div>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Welcome to the Secondary Schools Portal</h1>
+    </header>
+    <form class="d-flex ms-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search Schools" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+    </form>    
+    <main>
+        <!-- list of schools -->
+        <h2>List of Secondary Schools in Singapore</h2>
+        <div class="school-list">
+            <div class="school-box">
+                <h3>Admiralty Secondary School</h3>
+                <img src="Image/admiralty-secondary-school.jpg" alt="Admiralty Secondary School">
+                <div class="hover-text">Express: 14-21, Normal Academic: 22-25, Normal Technical: 25-28</div>
+            </div>
+            <div class="school-box">
+                <h3>Ahmad Ibrahim Secondary School</h3>
+                <img src="Image/ahmad-ibrahim-secondary-school.jpg" alt="Ahmad Ibrahim Secondary School">
+                <div class="hover-text">Express: 13-20, Normal Academic: 21-24, Normal Technical: 25-29</div>
+            </div>
+            <div class="school-box">
+                <h3>Anderson Secondary School</h3>
+                <img src="Image/Anderson_Secondary_School,_Nov_06.jpg" alt="Anderson Secondary School">
+                <div class="hover-text">Express: 12-19, Normal Academic: 20-23, Normal Technical: 24-27</div>
+            </div>
+            <div class="school-box">
+                <h3>Ang Mo Kio Secondary School</h3>
+                <img src="Image/6098213202627248376.jpg" alt="Ang Mo Kio Secondary School">
+                <div class="hover-text">Express: 10-16, Normal Academic: 21-24, Normal Technical: 25-28</div>
+            </div>
+            <div class="school-box">
+                <h3>Anglican High School</h3>
+                <img src="Image/6098213202627248375.jpg" alt="Anglican High School">
+                <div class="hover-text">Express: 6-12</div>
+            </div>        
+            <div class="school-box">
+                <h3>Anglo-Chinese School (Barker Road)</h3>
+                <img src="Image/6098213202627248378.jpg" alt="Anglo-Chinese School (Barker Road)">
+                <div class="hover-text">Express: 7-13 (Affiliated)</div>
+            </div>        
+            <div class="school-box">
+                <h3>Anglo-Chinese School (Independent)</h3>
+                <img src="Image/Anglo-Chinese_School_(Independent),_Nov_06.jpg" alt="Anglo-Chinese School (Independent)">
+                <div class="hover-text">Express: 4-7, 7-13 (Affiliated)</div>
+            </div>
+            <div class="school-box">
+                <h3>Assumption English School</h3>
+                <img src="Image/image 6.jpg" alt="Assumption English School">
+                <div class="hover-text">Express: 14-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Balestier Hill Secondary School</h3>
+                <img src="Image/balestier-hill-secondary-2015-nathan-chia-fb.jpg" alt="Balestier Hill Secondary School">
+                <div class="hover-text">Express: 15-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bartley Secondary School</h3>
+                <img src="Image/2004.jpg" alt="Bartley Secondary School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bedok Green Secondary School</h3>
+                <img src="Image/Our-Heritage-e1570003294657.jpg" alt="Bedok Green Secondary School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bedok South Secondary School</h3>
+                <img src="Image/(SGP-Singapore)_Bedok_South_Secondary_School_entrance_2024-03-04_(2).jpg" alt="Bedok South Secondary School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bedok View Secondary School</h3>
+                <img src="Image/portfolio-bedok_view_secondary_school.jpg" alt="Bedok View Secondary School">
+                <div class="hover-text">Express: 12-20, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bendemeer Secondary School</h3>
+                <img src="Image/genimage.jpg" alt="Bendemeer Secondary School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-26, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Boon Lay Secondary School</h3>
+                <img src="Image/Boon-Lay-Secondary-School-Campus.jpg" alt="Boon Lay Secondary School">
+                <div class="hover-text">Express: 14-22, Normal Academic: 22-26, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bowen Secondary School</h3>
+                <img src="Image/Bowen-Secondary-School.jpg" alt="Bowen Secondary School">
+                <div class="hover-text">Express: 10-16, Normal Academic: 21-24, Normal Technical: 25-28</div>
+            </div>
+            <div class="school-box">
+                <h3>Broadrick Secondary School</h3>
+                <img src="Image/genimage (1).jpg" alt="Broadrick Secondary School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bukit Batok Secondary School</h3>
+                <img src="Image/genimage (2).jpg" alt="Bukit Batok Secondary School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bukit Merah Secondary School</h3>
+                <img src="Image/genimage (3).jpg" alt="Bukit Merah Secondary School">
+                <div class="hover-text">Express: 14-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Bukit Panjang Government High School</h3>
+                <img src="Image/hq720.jpg" alt="Bukit Panjang Government High School">
+                <div class="hover-text">Express: 6-10</div>
+            </div>
+            <div class="school-box">
+                <h3>Canberra Secondary School</h3>
+                <img src="Image/2qEpSdXdjEuuCUuLCT5KiAeZSrxO1VLG58zV2hUNwAM.jpg" alt="Canberra Secondary School">
+                <div class="hover-text">Express: 14-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Canossa Catholic High School</h3>
+                <img src="Image/9591858805e7abdf6250cd478b9d9a6231c5ba14050c6e2d9ab991f47697df17.jpg" alt="Canossa Catholic High School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-26, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Casuarina Secondary School</h3>
+                <img src="Image/CSC-1-landscape.jpg" alt="Casuarina Secondary School">
+                <div class="hover-text">Express: 13-22, Normal Academic: 22-26, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Changkat Changi Secondary School</h3>
+                <img src="Image/genimage (4).jpg" alt="Changkat Changi Secondary School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-26, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Chestnut Drive Secondary School</h3>
+                <img src="Image/20231025_105406.jpg" alt="Chestnut Drive Secondary School">
+                <div class="hover-text">Express: 14-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Chij Katong Convent</h3>
+                <img src="Image/ctchij0808.jpg" alt="CHIJ Katong Convent">
+                <div class="hover-text">Express: 12-20, Normal Academic: 21-24</div>
+            </div>
+            <div class="school-box">
+                <h3>Chij Secondary (Toa Payoh)</h3>
+                <img src="Image/1200px-CHIJTP.jpg" alt="CHIJ Secondary (Toa Payoh)">
+                <div class="hover-text">Express: 6-13</div>
+            </div>
+            <div class="school-box">
+                <h3>Chua Chu Kang Secondary School</h3>
+                <img src="Image/genimage (5).jpg" alt="Chua Chu Kang Secondary School">
+                <div class="hover-text">Express: 12-22, Normal Academic: 22-25, Normal Technical: 26-30</div>
+            </div>
+            <div class="school-box">
+                <h3>Clementi Town Secondary School</h3>
+                <img src="Image/ctss-campus.jpg" alt="Clementi Town Secondary School">
+                <div class="hover-text">Express: 12-20, Normal Academic: 21-24, Normal Technical: 25-28</div>
+            </div>
+            <div class="school-box">
+                <h3>Commonwealth Secondary School</h3>
+                <img src="Image/schools-green-spaces---main-image.jpg" alt="Commonwealth Secondary School">
+                <div class="hover-text">Express: 6-12</div>
+        </div>
+        <footer>
+            <p>&copy; 2025 Singapore Education Portal. All rights reserved.</p>
+        </footer>
+    </main>
+    <!-- javascript for search function -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.querySelector(".form-control");
+            const schoolBoxes = document.querySelectorAll(".school-box");
+            searchInput.addEventListener("input", function () {
+                const searchText = searchInput.value.toLowerCase();
+                schoolBoxes.forEach(box => {
+                    const schoolName = box.querySelector("h3").textContent.toLowerCase();
+                    if (schoolName.includes(searchText)) {
+                        box.style.display = "block"; 
+                    } else {
+                        box.style.display = "none"; 
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>
+
+
+ 
