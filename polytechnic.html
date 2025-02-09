@@ -196,14 +196,62 @@
         }
 
         .wheel-container {
-            text-align: center;
-            margin-top: 2rem;
-        }
+            display: flex;
+            flex-direction: column; /* Stacks the elements vertically */
+            align-items: center;    /* Centers the elements horizontally */
+            gap: 20px;              /* Optional: Adds space between the wheel and button */
+            }
 
         #wheel {
-            border: 16px solid maroon;
+            border: 10px solid maroon;
             border-radius: 50%;
         }
+        
+        #spinButton {
+            background-color: maroon;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto;
+            margin: 10px auto;
+            display: inline-block;
+            text-align: center;
+            max-width: 500px;
+            margin-bottom: 0;
+        }
+
+        #spinButton:hover {
+            background-color: #601c1c;
+        }
+
+        #generateButton {
+            background-color: maroon;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto;
+            margin: 10px auto;
+            display: inline-block;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        #generateButton:hover {
+            background-color: #601c1c;
+        }
+
+        #output {
+            text-align: center;
+        }
+        
     </style>
 </head>
 <body>
@@ -236,7 +284,6 @@
             </div>
 
             <div class="polytechnic-list" id="polytechnicList">
-                <!-- Example of dynamic content -->
                 <div class="polytechnic-card" data-polytechnic="Ngee Ann Polytechnic">
                     <h2>Ngee Ann Polytechnic</h2>
                     <img src="https://www.np.edu.sg/images/default-source/about-np-2/facilities/atrium.jpg?sfvrsn=57267937_2" alt="Ngee Ann Polytechnic" class="polytechnic-img">
@@ -299,7 +346,7 @@
                     <p class="course">Common Science Programme, cut off point: 13</p>
 
                     <h3>CCAs:</h3>
-                    <p>Taekwondo, Debate Club, Drama Society</p>
+                    <p><a href="https://www.np.edu.sg/student-life/clubs-societies" target="_blank">Click here to find out more about the CCAs offered!</a></p>
                 </div>
                 <div class="polytechnic-card" data-polytechnic="Temasek Polytechnic">
                     <h2>Temasek Polytechnic</h2>
@@ -356,6 +403,8 @@
                     <p class="course">Diploma in Early Childhood Development & Education, cut off point: 15</p>
                     <p class="course">Diploma in Psychology Studies, cut off point: 14</p>
                     <p class="course">Diploma in Social Sciences in Gerontology, cut off point: 14</p>
+                    <h3>CCAs:</h3>
+                    <p><a href="https://www.tp.edu.sg/life-at-tp/cca-events.html" target="_blank">Click here to find out more about the CCAs offered!</a></p>
                 </div>
                 <div class="polytechnic-card" data-polytechnic="Nanyang Polytechnic">
                     <h2>Nanyang Polytechnic</h2>
@@ -364,7 +413,7 @@
                     <p class="course">Animation, cut off point: 15</p>
                     <p class="course">Pharmacy Science, cut off point: 10</p>
                     <h3>CCAs:</h3>
-                    <p>Music Club, Chess Club, Swimming Team</p>
+                    <p><a href="https://www.nyp.edu.sg/student/life/co-curricular-activities" target="_blank">Click here to find out more about the CCAs offered!</a></p>
                 </div>
                 <div class="polytechnic-card" data-polytechnic="Republic Polytechnic">
                     <h2>Republic Polytechnic</h2>
@@ -373,16 +422,63 @@
                     <p class="course">Digital Media, cut off point: 16</p>
                     <p class="course">Sports Science, cut off point: 12</p>
                     <h3>CCAs:</h3>
-                    <p>Track & Field, Environmental Club, Coding Club</p>
+                    <p><a href="https://www.rp.edu.sg/beyond-classroom/co-curricular-activities" target="_blank">Click here to find out more about the CCAs offered!</a></p>
                 </div>
                 <div class="polytechnic-card" data-polytechnic="Singapore Polytechnic">
                     <h2>Singapore Polytechnic</h2>
                     <img src="https://static1.straitstimes.com.sg/s3fs-public/articles/2021/05/19/ak_spoly_190521.jpg?VersionId=v7iUUYvS7RH2ggo2RQpDpO8_BaqcNaER" alt="Singapore Polytechnic" class="polytechnic-img">
                     <h3>Courses:</h3>
-                    <p class="course">Marine Engineering, cut off point: 13</p>
-                    <p class="course">Applied AI, cut off point: 11</p>
+                    <h4>1. School of Architecture & the Built Environment:</h4>
+                    <p class="course">Diploma in Architecture, cut off point: 15</p>
+                    <p class="course">Diploma in Landscape Architecture, cut off point: 17</p>
+                    <p class="course">Diploma in Civil Engineering, cut off point: 23</p>
+                    <p class="course">Diploma in Facilities Management, cut off point: 20</p>
+                    <p class="course">Diploma in Integrated Events & Project Management, cut off point: 15</p>
+
+                    <h4>2. School of Business:</h4>
+                    <p class="course">Diploma in Accountancy, cut off point: 12</p>
+                    <p class="course">Diploma in Banking & Finance, cut off point: 10</p>
+                    <p class="course">Diploma in Business Administration, cut off point: 11</p>
+                    <p class="course">Diploma in Human Resource Management with Psychology, cut off point: 11</p>
+                    <p class="course">Diploma in Common Business Programme, cut off point: 12</p>
+
+                    <h4>3. School of Chemical & Life Sciences:</h4>
+                    <p class="course">Diploma in Applied Chemistry, cut off point: 9</p>
+                    <p class="course">Diploma in Biomedical Science, cut off point: 7</p>
+                    <p class="course">Diploma in Chemical Engineering, cut off point: 14</p>
+                    <p class="course">Diploma in Food Science & Technology, cut off point: 12</p>
+                    <p class="course">Diploma in Perfumery & Cosmetic Science, cut off point: 10</p>
+                    <p class="course">Diploma in Common Science Programme, cut off point: 10</p>
+
+                    <h4>4. School of Computing:</h4>
+                    <p class="course">Diploma in Applied AI Analytics, cut off point: 10</p>
+                    <p class="course">Diploma in Cybersecurity & Digital Forensics, cut off point: 12</p>
+                    <p class="course">Diploma in Information Technology, cut off point: 16</p>
+                    <p class="course">Diploma in Common ICT Programme, cut off point: 14</p>
+
+                    <h4>5. School of Electrical & Electronic Engineering:</h4>
+                    <p class="course">Diploma in Electrical & Electronic Engineering, cut off point: 18</p>
+                    <p class="course">Diploma in Computer Engineering, cut off point: 13</p>
+                    <p class="course">Diploma in Aerospace Electronics, cut off point: 12</p>
+                    <p class="course">Diploma in Mechatronics & Robotics, cut off point: 20</p>
+                    <p class="course">Diploma in Common Engineering Programme, cut off point: 19</p>
+
+                    <h4>6. School of Media, Arts & Design:</h4>
+                    <p class="course">Diploma in Media, Arts & Design, cut off point: 13</p>
+                    <p class="course">Diploma in Interior Design, cut off point: 14</p>
+
+                    <h4>7. School of Mechanical & Aeronautical Engineering:</h4>
+                    <p class="course">Diploma in Aeronautical Engineering, cut off point: 15</p>
+                    <p class="course">Diploma in Mechanical Engineering, cut off point: 20</p>
+
+                    <h4>8. School of Health Sciences:</h4>
+                    <p class="course">Diploma in Optometry, cut off point: 12</p>
+
+                    <h4>9. Singapore Maritime Academy:</h4>
+                    <p class="course">Diploma in Marine Engineering, cut off point: 25</p>
+                    <p class="course">Diploma in Maritime Business, cut off point: 17</p>
                     <h3>CCAs:</h3>
-                    <p>Robotics, Dance, Badminton</p>
+                    <p><a href="https://www.sp.edu.sg/ccas/our-clubs" target="_blank">Click here to find out more about the CCAs offered!</a></p>
                 </div>
             </div>
         </div>
@@ -407,13 +503,16 @@
     </div>
     </div>
 
-    <!-- Spinning Wheel -->
+    <!--Wheel-->
     <div class="wheel-container">
         <canvas id="wheel" width="300" height="300"></canvas>
-        <button id="spinButton">Spin for Polytechnic!</button>
-        <div id="result"></div>
+        <button id="spinButton">Spin for Polytechnic</button>
+        <div id="result">
+            <p id="polyName"></p>
+        </div>
     </div>
-
+    <button id="generateButton">Generate Random Course</button>
+    <div id="output"></div>
     <footer>
         <p>&copy; 2025 Singapore Polytechnic Portal. All rights reserved.</p>
     </footer>
@@ -447,11 +546,11 @@
                 const polytechnicName = card.querySelector('h2').textContent.toLowerCase();
                 const courses = card.getElementsByClassName('course');
 
-                // Check if the polytechnic matches the filter
+                //check if the polytechnic matches
                 const matchesPolytechnic = polytechnicFilter === 'all' || 
                                         polytechnicName.includes(polytechnicFilter.replace('-', ' ').toLowerCase());
 
-                //check for courses that match the cut-off point
+                //check for courses that meet the cut-off point
                 let anyCourseVisible = false;
                 Array.from(courses).forEach(course => {
                     const cutOffPoint = parseInt(course.textContent.match(/\d+/));
@@ -472,35 +571,83 @@
             });
         }
         const polytechnicCards = document.querySelectorAll('.polytechnic-card');
-        console.log(polytechnicCards);
+        let selectedPolytechnic = null;
         const wheel = new Winwheel({
             'canvasId': 'wheel',
             'numSegments': polytechnicCards.length,
-            'segments': Array.from(polytechnicCards).map(card => card.getAttribute('data-polytechnic')),
-            'textFontSize': 20,
+            'segments': Array.from(polytechnicCards).map(card => {
+                return {
+                    'text': card.getAttribute('data-polytechnic')
+                };
+            }),
+            'textFontSize': 12,
             'fillStyle': 'white',
             'textAlignment': 'center',
             'textDirection': 'normal',
-            'outerRadius': 150
+            'outerRadius': 150, 
+            'pointerGuide': {
+                'display': true,
+                'strokeStyle': '#FFBF00', 
+                'lineWidth': 3,  
+            },
+            'animation': {
+                'type': 'spinToStop',
+                'duration': 5,
+                'spins': 8,
+                'callbackFinished': result
+            }
         });
 
+        //adds event listener to the wheel button
         document.getElementById('spinButton').addEventListener('click', () => {
             wheel.startAnimation();
         });
 
-        wheel.animation.callbackFinished = function() {
-            const selectedPolytechnic = polytechnicCards[wheel.selectedSegmentIndex];
-            const polyName = selectedPolytechnic.getAttribute('data-polytechnic');
-            document.getElementById('polyName').textContent = polyName;
+        function result() {
+            const selectedSegment = wheel.getIndicatedSegment();  //get selected polytechnic segment
+            selectedPolytechnic = selectedSegment.text;  //store the polytechnic name
+            document.getElementById('polyName').textContent = `Selected Polytechnic: ${selectedPolytechnic}`;
+            setTimeout(() => {
+                wheel.stopAnimation(false);  // Ensure any residual animation is stopped
+                wheel.rotationAngle = 0;       // Reset the rotation angle to the starting position
+                wheel.draw();                  // Redraw the wheel with the reset state
+            }, 2500);
+        }
 
-            // Extract courses dynamically from the selected polytechnic card
-            const courses = selectedPolytechnic.querySelector('.courses').children;
-            document.getElementById('courseListText').textContent = 'Select a course...';
-            document.getElementById('generateCourseButton').onclick = () => {
-                const randomCourse = courses[Math.floor(Math.random() * courses.length)].textContent;
-                document.getElementById('courseListText').textContent = randomCourse;
-            };
-        };
+        function getRandomCourse() {
+            //check if the wheel has been spun
+            if (selectedPolytechnic) {
+                //use the selected polytechnic from wheel^^
+                const selectedPolytechnicCard = Array.from(polytechnicCards).find(card =>
+                    card.getAttribute('data-polytechnic') === selectedPolytechnic
+                );
+                
+                const courses = selectedPolytechnicCard.querySelectorAll('.course');
+                const coursesArray = Array.from(courses);
+                const randomIndex = Math.floor(Math.random() * coursesArray.length);
+                return coursesArray[randomIndex].textContent;
+            } else {
+                //if no spin, pick a random course from any polytechnic
+                const randomPolytechnicCard = polytechnicCards[Math.floor(Math.random() * polytechnicCards.length)];
+                const courses = randomPolytechnicCard.querySelectorAll('.course');
+                const coursesArray = Array.from(courses);
+                const randomIndex = Math.floor(Math.random() * coursesArray.length);
+                return coursesArray[randomIndex].textContent;
+            }
+        }
+        //function to handle button click
+        function handleGenerateButtonClick() {
+            // Get the random course
+            const randomCourse = getRandomCourse();
+
+            //displays the random course
+            const outputDiv = document.getElementById('output');
+            outputDiv.textContent = `Random Course: ${randomCourse}`;
+        }
+
+        //adds event listener to the course generator button
+        const generateButton = document.getElementById('generateButton');
+        generateButton.addEventListener('click', handleGenerateButtonClick);
     </script>
 </body>
 </html>
