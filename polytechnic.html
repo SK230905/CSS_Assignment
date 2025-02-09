@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singapore Polytechnic Portal</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!--Do i really need this???????????????-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zarocknz/javascript-winwheel/Winwheel.min.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -16,9 +19,9 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            min-height: 100vh; 
+            min-height: 100vh;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
         }
 
         :root {
@@ -135,11 +138,11 @@
         }
         .filters label {
             display: block;
-            margin-bottom: 0.5rem; /* Adds spacing for better readability */
+            margin-bottom: 0.5rem;
         }
 
         .filters input {
-            margin-bottom: 1rem; /* Adds spacing below the input field */
+            margin-bottom: 1rem;
         }
 
         .search-container {
@@ -160,14 +163,28 @@
             padding: 1rem;
             margin-bottom: 1rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .polytechnic-card h2 {
             color: var(--primary-color);
+            position: relative;
         }
 
-        .course {
-            margin: 0.5rem 0;
+        /* Image Hover Effect */
+        .polytechnic-card h2:hover + .polytechnic-img {
+            display: block;
+        }
+
+        .polytechnic-img {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            max-width: 400px;
+            max-height: 190px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease-in-out;
         }
 
         footer {
@@ -175,7 +192,17 @@
             color: white;
             padding: 2rem;
             text-align: center;
-            margin-top: auto; 
+            margin-top: auto;
+        }
+
+        .wheel-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        #wheel {
+            border: 16px solid maroon;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -210,43 +237,147 @@
 
             <div class="polytechnic-list" id="polytechnicList">
                 <!-- Example of dynamic content -->
-                <div class="polytechnic-card">
+                <div class="polytechnic-card" data-polytechnic="Ngee Ann Polytechnic">
                     <h2>Ngee Ann Polytechnic</h2>
+                    <img src="https://www.np.edu.sg/images/default-source/about-np-2/facilities/atrium.jpg?sfvrsn=57267937_2" alt="Ngee Ann Polytechnic" class="polytechnic-img">
                     <h3>Courses:</h3>
-                    <p class="course">Cybersecurity and Digital Forensics, cut off point: 11</p>
-                    <p class="course">Animation & Visual Effects, cut off point: 12</p>
-                    <p class="course">Biomedical Engineering, cut off point: 13</p>
-                    <p class="course">Business Studies, cut off point: 12</p>
-                    <p class="course">Early Childhood Education, cut off point: 14</p>
+                    <h4>1. School of Business & Accountancy (BA):</h4>
+                    <p class="course">Diploma in Accountancy, cut off point: 12</p>
+                    <p class="course">Diploma in Banking & Finance, cut off point: 13</p>
+                    <p class="course">Diploma in Business Studies, cut off point: 12</p>
+                    <p class="course">Diploma in International Trade & Business, cut off point: 14</p>
+                    <p class="course">Diploma in Tourism & Resort Management, cut off point: 15</p>
+                    <p class="course">Common Business Programme, cut off point: 13</p>
+
+                    <h4>2. School of Design & Environment (DE):</h4>
+                    <p class="course">Diploma in Design, cut off point: 14</p>
+                    <p class="course">Diploma in Hotel & Leisure Facilities Management, cut off point: 13</p>
+                    <p class="course">Diploma in Real Estate Business, cut off point: 12</p>
+
+                    <h4>3. School of Engineering (SoE):</h4>
+                    <p class="course">Diploma in Aerospace Engineering, cut off point: 11</p>
+                    <p class="course">Diploma in Biomedical Engineering, cut off point: 12</p>
+                    <p class="course">Diploma in Electrical Engineering, cut off point: 13</p>
+                    <p class="course">Diploma in Electronic & Computer Engineering, cut off point: 12</p>
+                    <p class="course">Diploma in Engineering Science, cut off point: 11</p>
+                    <p class="course">Diploma in Mechanical Engineering, cut off point: 13</p>
+                    <p class="course">Diploma in Mechatronics & Robotics, cut off point: 12</p>
+                    <p class="course">Diploma in Offshore & Sustainable Engineering, cut off point: 14</p>
+                    <p class="course">Common Engineering Programme, cut off point: 13</p>
+
+                    <h4>4. School of Film & Media Studies (FMS):</h4>
+                    <p class="course">Diploma in Film, Sound & Video, cut off point: 15</p>
+                    <p class="course">Diploma in Mass Communication, cut off point: 14</p>
+                    <p class="course">Diploma in Media Post-Production, cut off point: 13</p>
+                    <p class="course">Common Media Programme, cut off point: 12</p>
+
+                    <h4>5. School of Health Sciences (HS):</h4>
+                    <p class="course">Diploma in Nursing, cut off point: 10</p>
+                    <p class="course">Diploma in Optometry, cut off point: 11</p>
+
+                    <h4>6. School of Humanities & Interdisciplinary Studies (HMIS):</h4>
+                    <p class="course">Diploma in Arts Business Management, cut off point: 14</p>
+                    <p class="course">Diploma in Chinese Media & Communication, cut off point: 13</p>
+                    <p class="course">Diploma in Chinese Studies, cut off point: 12</p>
+                    <p class="course">Diploma in Early Childhood Development & Education, cut off point: 15</p>
+                    <p class="course">Diploma in Tamil Studies with Early Education, cut off point: 14</p>
+                    <p class="course">Diploma in Psychology & Community Development, cut off point: 13</p>
+
+                    <h4>7. School of Infocomm Technology (ICT):</h4>
+                    <p class="course">Diploma in Cybersecurity & Digital Forensics, cut off point: 11</p>
+                    <p class="course">Diploma in Data Science, cut off point: 12</p>
+                    <p class="course">Diploma in Immersive Media, cut off point: 13</p>
+                    <p class="course">Diploma in Information Technology, cut off point: 12</p>
+                    <p class="course">Common ICT Programme, cut off point: 13</p>
+
+                    <h4>8. School of Life Sciences & Chemical Technology (LSCT):</h4>
+                    <p class="course">Diploma in Biomedical Science, cut off point: 11</p>
+                    <p class="course">Diploma in Chemical & Biomolecular Engineering, cut off point: 12</p>
+                    <p class="course">Diploma in Environmental & Water Technology, cut off point: 13</p>
+                    <p class="course">Diploma in Landscape Design & Horticulture, cut off point: 14</p>
+                    <p class="course">Diploma in Pharmaceutical Science, cut off point: 12</p>
+                    <p class="course">Common Science Programme, cut off point: 13</p>
+
                     <h3>CCAs:</h3>
                     <p>Taekwondo, Debate Club, Drama Society</p>
                 </div>
-                <div class="polytechnic-card">
+                <div class="polytechnic-card" data-polytechnic="Temasek Polytechnic">
                     <h2>Temasek Polytechnic</h2>
-                    <h3>Courses:</h3>
-                    <p class="course">Game Design, cut off point: 14</p>
-                    <p class="course">Hospitality Management, cut off point: 13</p>
-                    <h3>CCAs:</h3>
-                    <p>Robotics Club, Photography, Basketball</p>
+                    <img src="https://www.tp.edu.sg/ecerts/images/banner-mobile.jpg" alt="Temasek Polytechnic" class="polytechnic-img">
+                    <h4>1. School of Applied Science:</h4>
+                    <p class="course">Diploma in Food, Nutrition & Culinary Science, cut off point: 14</p>
+                    <p class="course">Diploma in Medical Biotechnology, cut off point: 13</p>
+                    <p class="course">Diploma in Chemical Engineering, cut off point: 12</p>
+                    <p class="course">Diploma in Pharmaceutical Science, cut off point: 13</p>
+                    <p class="course">Diploma in Veterinary Technology, cut off point: 14</p>
+                    <p class="course">Common Science Programme, cut off point: 13</p>
+                
+                    <h4>2. School of Business:</h4>
+                    <p class="course">Diploma in Accountancy & Finance, cut off point: 12</p>
+                    <p class="course">Diploma in Business, cut off point: 13</p>
+                    <p class="course">Diploma in Communications & Media Management, cut off point: 13</p>
+                    <p class="course">Diploma in Culinary & Catering Management, cut off point: 14</p>
+                    <p class="course">Diploma in Hospitality & Tourism Management, cut off point: 14</p>
+                    <p class="course">Diploma in International Trade & Logistics, cut off point: 13</p>
+                    <p class="course">Diploma in Law & Management, cut off point: 13</p>
+                    <p class="course">Diploma in Marketing, cut off point: 14</p>
+                    <p class="course">Common Business Programme, cut off point: 12</p>
+                
+                    <h4>3. School of Design:</h4>
+                    <p class="course">Diploma in Apparel Design & Merchandising, cut off point: 14</p>
+                    <p class="course">Diploma in Communication Design, cut off point: 14</p>
+                    <p class="course">Diploma in Interior Architecture & Design, cut off point: 14</p>
+                    <p class="course">Diploma in Product & Industrial Design, cut off point: 14</p>
+                    <p class="course">Diploma in Visual Communication, cut off point: 14</p>
+                    <p class="course">Common Design Programme, cut off point: 13</p>
+                
+                    <h4>4. School of Engineering:</h4>
+                    <p class="course">Diploma in Aerospace Engineering, cut off point: 12</p>
+                    <p class="course">Diploma in Aerospace Electronics, cut off point: 11</p>
+                    <p class="course">Diploma in Architectural Technology & Building Services, cut off point: 13</p>
+                    <p class="course">Diploma in Aviation Management, cut off point: 14</p>
+                    <p class="course">Diploma in Biomedical Engineering, cut off point: 12</p>
+                    <p class="course">Diploma in Business Process & Systems Engineering, cut off point: 13</p>
+                    <p class="course">Diploma in Computer Engineering, cut off point: 12</p>
+                    <p class="course">Diploma in Electronics, cut off point: 13</p>
+                    <p class="course">Diploma in Integrated Facility Management, cut off point: 14</p>
+                    <p class="course">Diploma in Mechatronics, cut off point: 13</p>
+                    <p class="course">Common Engineering Programme, cut off point: 13</p>
+                
+                    <h4>5. School of Informatics & IT:</h4>
+                    <p class="course">Diploma in Applied Artificial Intelligence, cut off point: 11</p>
+                    <p class="course">Diploma in Cybersecurity & Digital Forensics, cut off point: 12</p>
+                    <p class="course">Diploma in Data Science, cut off point: 13</p>
+                    <p class="course">Diploma in Immersive Media & Game Development, cut off point: 14</p>
+                    <p class="course">Diploma in Information Technology, cut off point: 12</p>
+                    <p class="course">Common ICT Programme, cut off point: 13</p>
+                
+                    <h4>6. School of Humanities & Social Sciences:</h4>
+                    <p class="course">Diploma in Early Childhood Development & Education, cut off point: 15</p>
+                    <p class="course">Diploma in Psychology Studies, cut off point: 14</p>
+                    <p class="course">Diploma in Social Sciences in Gerontology, cut off point: 14</p>
                 </div>
-                <div class="polytechnic-card">
+                <div class="polytechnic-card" data-polytechnic="Nanyang Polytechnic">
                     <h2>Nanyang Polytechnic</h2>
+                    <img src="https://i.nextmedia.com.au/News/Nanyang_Polytechnic.jpeg" alt="Nanyang Polytechnic" class="polytechnic-img">
                     <h3>Courses:</h3>
                     <p class="course">Animation, cut off point: 15</p>
                     <p class="course">Pharmacy Science, cut off point: 10</p>
                     <h3>CCAs:</h3>
                     <p>Music Club, Chess Club, Swimming Team</p>
                 </div>
-                <div class="polytechnic-card">
+                <div class="polytechnic-card" data-polytechnic="Republic Polytechnic">
                     <h2>Republic Polytechnic</h2>
+                    <img src="https://www.rp.edu.sg/images/default-source/service-excellence-lib/masthead-rp-main.jpg?sfvrsn=49d1cc04_8" alt="Republic Polytechnic" class="polytechnic-img">
                     <h3>Courses:</h3>
                     <p class="course">Digital Media, cut off point: 16</p>
                     <p class="course">Sports Science, cut off point: 12</p>
                     <h3>CCAs:</h3>
                     <p>Track & Field, Environmental Club, Coding Club</p>
                 </div>
-                <div class="polytechnic-card">
+                <div class="polytechnic-card" data-polytechnic="Singapore Polytechnic">
                     <h2>Singapore Polytechnic</h2>
+                    <img src="https://static1.straitstimes.com.sg/s3fs-public/articles/2021/05/19/ak_spoly_190521.jpg?VersionId=v7iUUYvS7RH2ggo2RQpDpO8_BaqcNaER" alt="Singapore Polytechnic" class="polytechnic-img">
                     <h3>Courses:</h3>
                     <p class="course">Marine Engineering, cut off point: 13</p>
                     <p class="course">Applied AI, cut off point: 11</p>
@@ -268,11 +399,19 @@
                 <option value="singapore">Singapore Polytechnic</option>
             </select>
 
-            <label for="cutOffFilter">Cut Off Point:</label>
-            <input type="number" id="cutOffFilter" placeholder="Cut Off Point">
+            <label for="cutOffFilter">Your L1R4 points:</label>
+            <input type="number" id="cutOffFilter" placeholder="Enter points">
 
             <button onclick="applyFilters()">Apply</button>
         </div>
+    </div>
+    </div>
+
+    <!-- Spinning Wheel -->
+    <div class="wheel-container">
+        <canvas id="wheel" width="300" height="300"></canvas>
+        <button id="spinButton">Spin for Polytechnic!</button>
+        <div id="result"></div>
     </div>
 
     <footer>
@@ -280,7 +419,7 @@
     </footer>
 
     <script>
-        // JavaScript for search and filter functionality
+        //search function
         const searchBox = document.getElementById('searchBox');
         const polytechnicList = document.getElementById('polytechnicList');
 
@@ -297,7 +436,8 @@
                 }
             });
         });
-
+        
+        //filter function
         function applyFilters() {
             const polytechnicFilter = document.getElementById('polytechnicFilter').value;
             const cutOffFilter = document.getElementById('cutOffFilter').value;
@@ -307,26 +447,60 @@
                 const polytechnicName = card.querySelector('h2').textContent.toLowerCase();
                 const courses = card.getElementsByClassName('course');
 
-                let matchesPolytechnic = polytechnicFilter === 'all' || polytechnicName.includes(polytechnicFilter.replace('-', ' '));
-                let anyCourseVisible = false;
+                // Check if the polytechnic matches the filter
+                const matchesPolytechnic = polytechnicFilter === 'all' || 
+                                        polytechnicName.includes(polytechnicFilter.replace('-', ' ').toLowerCase());
 
+                //check for courses that match the cut-off point
+                let anyCourseVisible = false;
                 Array.from(courses).forEach(course => {
                     const cutOffPoint = parseInt(course.textContent.match(/\d+/));
-                    if (cutOffFilter && cutOffPoint >= cutOffFilter && matchesPolytechnic) {
-                        course.style.display = ''; // Show course
+                    if (!cutOffFilter || cutOffPoint >= cutOffFilter) {
+                        course.style.display = ''; //show course
                         anyCourseVisible = true;
                     } else {
-                        course.style.display = 'none'; // Hide course
+                        course.style.display = 'none'; //hide course
                     }
                 });
 
-
-                card.style.display = anyCourseVisible ? '' : 'none';
+                //show/hide the school
+                if (matchesPolytechnic && (anyCourseVisible || !cutOffFilter)) {
+                    card.style.display = ''; //show
+                } else {
+                    card.style.display = 'none'; //hide
+                }
             });
-}
+        }
+        const polytechnicCards = document.querySelectorAll('.polytechnic-card');
+        console.log(polytechnicCards);
+        const wheel = new Winwheel({
+            'canvasId': 'wheel',
+            'numSegments': polytechnicCards.length,
+            'segments': Array.from(polytechnicCards).map(card => card.getAttribute('data-polytechnic')),
+            'textFontSize': 20,
+            'fillStyle': 'white',
+            'textAlignment': 'center',
+            'textDirection': 'normal',
+            'outerRadius': 150
+        });
 
+        document.getElementById('spinButton').addEventListener('click', () => {
+            wheel.startAnimation();
+        });
 
+        wheel.animation.callbackFinished = function() {
+            const selectedPolytechnic = polytechnicCards[wheel.selectedSegmentIndex];
+            const polyName = selectedPolytechnic.getAttribute('data-polytechnic');
+            document.getElementById('polyName').textContent = polyName;
 
+            // Extract courses dynamically from the selected polytechnic card
+            const courses = selectedPolytechnic.querySelector('.courses').children;
+            document.getElementById('courseListText').textContent = 'Select a course...';
+            document.getElementById('generateCourseButton').onclick = () => {
+                const randomCourse = courses[Math.floor(Math.random() * courses.length)].textContent;
+                document.getElementById('courseListText').textContent = randomCourse;
+            };
+        };
     </script>
 </body>
 </html>
